@@ -1,0 +1,143 @@
+# Pages CMS Configuration
+media:
+  input: media
+  output: /media
+
+content:
+  # Homepage content
+  - name: homepage
+    label: Homepage
+    path: src/_data/homepage.json
+    type: file
+    fields:
+      - name: title
+        label: Page Title
+        type: string
+        required: true
+        default: "Welcome to My Website"
+      - name: subtitle
+        label: Subtitle
+        type: text
+        description: A brief description of your website
+        default: "This is a simple website built with Pages CMS"
+      - name: hero_image
+        label: Hero Image
+        type: image
+        description: Main image displayed on the homepage
+      - name: about_section
+        label: About Section
+        type: object
+        fields:
+          - name: title
+            label: About Title
+            type: string
+            default: "About Us"
+          - name: content
+            label: About Content
+            type: rich-text
+            default: "Tell your visitors about yourself and your website."
+      - name: features
+        label: Features
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Feature Title
+            type: string
+          - name: description
+            label: Feature Description
+            type: text
+          - name: icon
+            label: Feature Icon
+            type: string
+            description: CSS class name for icon (e.g., 'fas fa-star')
+
+  # Blog posts collection
+  - name: posts
+    label: Blog Posts
+    type: collection
+    path: src/posts
+    view:
+      fields: [title, published, date]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: published
+        label: Published
+        type: boolean
+        default: true
+      - name: excerpt
+        label: Excerpt
+        type: text
+        description: Brief summary of the post
+      - name: featured_image
+        label: Featured Image
+        type: image
+      - name: tags
+        label: Tags
+        type: select
+        options:
+          multiple: true
+          creatable: true
+          values: ["Technology", "Design", "Development", "News"]
+      - name: body
+        label: Content
+        type: rich-text
+        required: true
+
+  # Site settings
+  - name: settings
+    label: Site Settings
+    path: src/_data/site.json
+    type: file
+    fields:
+      - name: site_name
+        label: Site Name
+        type: string
+        required: true
+        default: "My Website"
+      - name: description
+        label: Site Description
+        type: text
+        description: Used for SEO meta description
+        default: "A simple website built with Pages CMS"
+      - name: url
+        label: Website URL
+        type: string
+        pattern:
+          regex: '^(https?://)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$'
+          message: 'Please enter a valid URL (e.g., https://example.com)'
+      - name: logo
+        label: Site Logo
+        type: image
+      - name: social_links
+        label: Social Media Links
+        type: object
+        list: true
+        fields:
+          - name: platform
+            label: Platform
+            type: select
+            options:
+              values: ["Facebook", "Twitter", "Instagram", "LinkedIn", "GitHub"]
+          - name: url
+            label: URL
+            type: string
+          - name: icon
+            label: Icon Class
+            type: string
+            description: CSS class for the icon
+
+settings:
+  content:
+    merge: true

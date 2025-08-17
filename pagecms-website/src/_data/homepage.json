@@ -1,0 +1,26 @@
+{
+  "title": "Welcome to My Website",
+  "subtitle": "This is a simple website built with Pages CMS for easy content management",
+  "hero_image": "",
+  "about_section": {
+    "title": "About Us",
+    "content": "<p>Welcome to our website! We're passionate about creating beautiful, functional websites that are easy to manage and update.</p><p>With Pages CMS, you can edit content directly without touching any code. Simply login to the CMS interface and start editing your content in real-time.</p>"
+  },
+  "features": [
+    {
+      "title": "Easy Content Management",
+      "description": "Edit your website content through an intuitive interface without any technical knowledge required.",
+      "icon": "fas fa-edit"
+    },
+    {
+      "title": "Responsive Design",
+      "description": "Your website looks great on all devices - desktop, tablet, and mobile.",
+      "icon": "fas fa-mobile-alt"
+    },
+    {
+      "title": "Fast Performance",
+      "description": "Static site generation ensures your website loads quickly for all visitors.",
+      "icon": "fas fa-rocket"
+    }
+  ]
+}
